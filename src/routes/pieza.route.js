@@ -10,10 +10,10 @@ import {
 
 export const PiezaRoutes = Router();
 
-PiezaRoutes.post("/jobs", createPieza);
-PiezaRoutes.get("/jobs", getAllPiezas);
-PiezaRoutes.get("/jobs/:id", getPiezaById);
-PiezaRoutes.put("/jobs/:id", updatePieza);
-PiezaRoutes.delete("/jobs/:id", deletePieza);
+PiezaRoutes.post("/piezas", createPieza);
+PiezaRoutes.get("/piezas", getAllPiezas);
+PiezaRoutes.get("/piezas/:id", getPiezaById);
+PiezaRoutes.put("/piezas/:id", updatePieza);
+PiezaRoutes.delete("/piezas/:id", deletePieza);
 
 export default PiezaRoutes;

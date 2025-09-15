@@ -22,9 +22,7 @@ export const createMotor = async (req, res) => {
 // Obtener todos los motores
 export const getAllMotors = async (req, res) => {
     try {
-        const listAll = await MotorModel.find()
-            .populate("motor")
-            .populate("piezas");
+        const listAll = await MotorModel.find(); 
         res.status(200).json({
             msg: "Listando todos los motores",
             listAll,
