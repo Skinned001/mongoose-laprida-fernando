@@ -6,7 +6,7 @@ import {
     getAutomovilById, 
     updateAutomovil, 
     deleteAutomovil 
-} from "../controllers/automovil.controller"
+} from "../controllers/automovil.controller.js"
 
 export const AutomovilRoutes = Router();
 
