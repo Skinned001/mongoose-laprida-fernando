@@ -3,17 +3,17 @@ import { Router } from "express";
 import { 
     createMotor, 
     getAllMotors, 
-    getMotorsById, 
+    getMotorById, 
     updateMotor, 
     deleteMotor 
 } from "../controllers/motor.controller.js"
 
 export const MotorRoutes = Router();
 
-MotorRoutes.post("/jobs", createMotor);
-MotorRoutes.get("/jobs", getAllMotors);
-MotorRoutes.get("/jobs/:id", getMotorsById);
-MotorRoutes.put("/jobs/:id", updateMotor);
-MotorRoutes.delete("/jobs/:id", deleteMotor);
+MotorRoutes.post("/motors", createMotor);
+MotorRoutes.get("/motors", getAllMotors);
+MotorRoutes.get("/motors/:id", getMotorById);
+MotorRoutes.put("/motors/:id", updateMotor);
+MotorRoutes.delete("/motors/:id", deleteMotor);
 
 export default MotorRoutes;
