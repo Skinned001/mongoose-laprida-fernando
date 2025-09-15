@@ -1,4 +1,4 @@
-import { model, Schema } from "mongoose";
+import { model, Schema, Types } from "mongoose";
 
 export const AutomovilSchema = new Schema({
     detalles_auto: [{ // propiedad embebida
@@ -34,7 +34,7 @@ export const AutomovilSchema = new Schema({
             required: true
         },
         descripcion: {
-            String,
+            type: String,
             required: true
         },
         costo: {
@@ -48,4 +48,4 @@ export const AutomovilSchema = new Schema({
     }
 );
 
-export const AutomovilModel = model("Automovil", AutoSchema);
+export const AutomovilModel = model("Automovil", AutomovilSchema);
