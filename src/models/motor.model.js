@@ -1,15 +1,15 @@
-import { model, Schema, Types } from "mongoose";
+import { model, Schema } from "mongoose";
 
 export const MotorSchema = new Schema({
-    numeroSerie: {
+    numero_serie: {
         type: String,
-        unique: true
+        required: true
     },
     tipo: {
         type: String,
         required: true,
     },
-    potenciaHP: {
+    potencia_HP: {
         type: String,
         required: true
     },

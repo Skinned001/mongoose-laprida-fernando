@@ -1,6 +1,10 @@
-import { model, Schema, Types } from "mongoose";
+import { model, Schema } from "mongoose";
 
 export const PiezaSchema = new Schema({
+    numero_serie: {
+        type: Number,
+        required: true,
+    },
     nombre_pieza: {
         type: String,
         required: true
@@ -9,10 +13,9 @@ export const PiezaSchema = new Schema({
         type: String,
         required: true
     },
-    numero_serie: {
-        type: Number,
-        required: true,
-        unique: true
+    descripcion_pieza: {
+        type: String,
+        required: true
     },
 
 },

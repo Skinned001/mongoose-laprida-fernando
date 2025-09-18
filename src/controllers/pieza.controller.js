@@ -2,12 +2,13 @@ import { PiezaModel } from "../models/pieza.model.js";
 
 // Crear pieza
 export const createPieza = async (req, res) => {
-    const { nombre_pieza, fabricante_pieza, numero_serie } = req.body;
+    const { nombre_pieza, fabricante_pieza, numero_serie,descripcion_pieza } = req.body;
     try {
         const newPieza = await PiezaModel.create({
             nombre_pieza,
             fabricante_pieza,
             numero_serie,
+            descripcion_pieza,
         });
         res.status(201).json({
             msg: "Pieza creada correctamente",
@@ -37,15 +38,13 @@ export const getAllPiezas = async (req, res) => {
 export const getPiezaById = async (req, res) => {
     const { id } = req.params;
     try {
-        const auto = await PiezaModel.findById(id)
-            .populate("motor")
-            .populate("piezas");
-        if (!auto) {
+        const pieza = await PiezaModel.findById(id)
+        if (!pieza) {
             return res.status(404).json({ msg: "Pieza no encontrada" });
         }
         res.status(200).json({
             msg: "Pieza encontrada",
-            auto,
+            pieza,
         });
     } catch (error) {
         res.status(500).json({ msg: "Error interno del servidor", error });
@@ -55,11 +54,11 @@ export const getPiezaById = async (req, res) => {
 // Actualizar una pieza
 export const updatePieza = async (req, res) => {
     const { id } = req.params;
-    const { nombre_pieza, fabricante_pieza, numero_serie } = req.body;
+    const { nombre_pieza, fabricante_pieza, numero_serie,descripcion_pieza } = req.body;
     try {
-        const updatedMotor = await MotorModel.findByIdAndUpdate(
+        const updatedPieza = await PiezaModel.findByIdAndUpdate(
             id,
-            { nombre_pieza, fabricante_pieza, numero_serie },
+            { nombre_pieza, fabricante_pieza, numero_serie, descripcion_pieza},
             { new: true }
         );
         res.status(200).json({

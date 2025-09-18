@@ -5,7 +5,8 @@ import {
     getAllAutomovils, 
     getAutomovilById, 
     updateAutomovil, 
-    deleteAutomovil 
+    deleteAutomovil,
+    addMantenimientoToAutomovil
 } from "../controllers/automovil.controller.js"
 
 export const AutomovilRoutes = Router();
@@ -15,5 +16,10 @@ AutomovilRoutes.get("/automoviles", getAllAutomovils);
 AutomovilRoutes.get("/automoviles/:id", getAutomovilById);
 AutomovilRoutes.put("/automoviles/:id", updateAutomovil);
 AutomovilRoutes.delete("/automoviles/:id", deleteAutomovil);
+AutomovilRoutes.patch("/automoviles/:id/mantenimientos", addMantenimientoToAutomovil)
+
+
+
+
 
 export default AutomovilRoutes;

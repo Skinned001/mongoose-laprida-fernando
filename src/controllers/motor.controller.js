@@ -2,12 +2,13 @@ import { MotorModel } from "../models/motor.model.js";
 
 // Crear motor
 export const createMotor = async (req, res) => {
-    const { numeroSerie, tipo, potenciaHP } = req.body;
+    const { numero_serie, tipo, potencia_HP,fabricante_motor } = req.body;
     try {
         const newMotor = await MotorModel.create({
-            numeroSerie,
+            numero_serie,
             tipo,
-            potenciaHP,
+            potencia_HP,
+            fabricante_motor,
         });
         res.status(201).json({
             msg: "Motor creado correctamente",
@@ -36,15 +37,13 @@ export const getAllMotors = async (req, res) => {
 export const getMotorById = async (req, res) => {
     const { id } = req.params;
     try {
-        const auto = await MotorModel.findById(id)
-            .populate("motor")
-            .populate("piezas");
-        if (!auto) {
+        const motor = await MotorModel.findById(id);
+        if (!motor) {
             return res.status(404).json({ msg: "Motor no encontrado" });
         }
         res.status(200).json({
             msg: "Motor encontrado",
-            auto,
+            motor,
         });
     } catch (error) {
         res.status(500).json({ msg: "Error interno del servidor", error });
@@ -54,11 +53,11 @@ export const getMotorById = async (req, res) => {
 // Actualizar un motor
 export const updateMotor = async (req, res) => {
     const { id } = req.params;
-    const { numeroSerie, tipo, potenciaHP } = req.body;
+    const { numero_serie, tipo, potencia_HP,fabricante_motor } = req.body;
     try {
         const updatedMotor = await MotorModel.findByIdAndUpdate(
             id,
-            { numeroSerie, tipo, potenciaHP },
+            { numero_serie, tipo, potencia_HP,fabricante_motor },
             { new: true }
         );
         res.status(200).json({

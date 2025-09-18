@@ -5,7 +5,7 @@ import { connectDB } from "./src/config/database.js";
 import { routes } from "./src/routes/index.js";
 
 const app = express();
-const PORT = process.env.PORT;
+const PORT = 3000;
 
 // middlewares
 app.use(express.json());
