@@ -13,6 +13,10 @@ export const MotorSchema = new Schema({
         type: String,
         required: true
     },
+    fabricante_motor: {
+        type: String,
+        required: true
+    },
 },
     {
         versionKey: false,
